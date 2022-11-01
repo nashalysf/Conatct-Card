@@ -1,3 +1,5 @@
+import "./submit";
+
 const form = document.getElementById("formToggle");
 console.log(form);
 
