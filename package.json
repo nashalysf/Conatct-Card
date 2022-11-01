@@ -2,7 +2,7 @@
 	"name": "contact-cards",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.html",
+	"private": true,
 	"scripts": {
 		"start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
 		"start": "cd server && node server.js",
