@@ -47,7 +47,7 @@ export const postDb = async (name, email, phone, profile) => {
   const store = tx.objectStore('contact_db');
 
   // use .add() to store an dpass content
-  const request = store.add({ name: name, email: email, phone: phone, profile: profile });
+  const request = store.put({ name: name, email: email, phone: phone, profile: profile });
 
   //get confirm of req
   const result = await request;
@@ -55,7 +55,25 @@ export const postDb = async (name, email, phone, profile) => {
 };
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => console.error('putDb not implemented');
+export const editDb = async (content) => {
+  console.log('PUT to the db');
+
+  //create connection to db and specify version
+  const contactDb = await openDB('contact_db', 1);
+
+  //create new transaction and specify store and data privileges
+  const tx = contactDb.transaction('contact_db', 'readwrite');
+
+  //open desired object store
+  const store = tx.objectStore('contact_db');
+
+  // use .add() to store an dpass content
+  const request = store.put({ name: name, email: email, phone: phone, profile: profile });
+
+  //get confirm of req
+  const result = await request;
+};
+
 
 export const deleteDb = async (id) => {
   console.log('DELETE from the database', id);
